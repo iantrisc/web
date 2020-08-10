@@ -1,0 +1,20 @@
+{
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    [
+      "@semantic-release/npm",
+      {
+        "npmPublish": false,
+        "tarballDir": "docs"
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": ["docs/*.tgz", "docs/*.zip"]
+      }
+    ]
+  ]
+}

@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  app:
+    image: node:13.8.0-alpine
+    restart: always
+    working_dir: /usr/src/app
+    command: npm run build # start build
+    volumes:
+      - iantrisc-website:/usr/src/app/node_modules
+      - .:/usr/src/app
+    ports:
+      - 9000:9000
+volumes:
+  iantrisc-website:
+    external: true

@@ -1,0 +1,20 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+jobs:
+  deploy:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: npm install
+workflows:
+  deploy:
+    jobs:
+      - deploy:
+          context: iantrisc
+          filters:
+            branches:
+              only: master
